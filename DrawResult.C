@@ -5,14 +5,22 @@ void DrawResult()
    TString indir = "/home/ovtin/development/mcp_csi/"; 
 
    TString file1 = "2021-04-08_01-45-33";    //Umcp=2200V; Upc=2100V;
-   TString file2 = "2021-04-08_09-00-26";  //Umcp=2600V; Upc=3200V;
+   //TString file2 = "2021-04-08_09-00-26";  //Umcp=2600V; Upc=3200V;
    //TString file2 = "2021-04-08_08-42-18";  //Umcp=2600V; Upc=2900V;
    //TString file2 = "2021-04-08_03-59-57";    //Umcp=2400V; Upc=3000V;
+   TString file2 = "2021-04-08_02-19-18";    //Umcp=2400V; Upc=2600V;
+   //TString file2 = "2021-04-08_03-01-22";    //Umcp=2400V; Upc=2700V;
+   //TString file2 = "2021-04-08_03-10-31";    //Umcp=2400V; Upc=2800V;
+   //TString file2 = "2021-04-08_03-34-54";    //Umcp=2400V; Upc=2900V;
   
    TString file1TitleCan = "U_{mcp}=2200V U_{phc}=2100V";
-   TString file2TitleCan = "U_{mcp}=2600V  U_{phc}=3200V";
+   //TString file2TitleCan = "U_{mcp}=2600V  U_{phc}=3200V";
    //TString file2TitleCan = "U_{mcp}=2600V  U_{phc}=2900V";
    //TString file2TitleCan = "U_{mcp}=2400V  U_{phc}=3000V";
+   TString file2TitleCan = "U_{mcp}=2400V  U_{phc}=2600V";
+   //TString file2TitleCan = "U_{mcp}=2400V  U_{phc}=2700V";
+   //TString file2TitleCan = "U_{mcp}=2400V  U_{phc}=2800V";
+   //TString file2TitleCan = "U_{mcp}=2400V  U_{phc}=2900V";
 
    TString indir1 = indir + file1 + ".root";      
    TString indir2 = indir + file2 + ".root"; 
@@ -46,9 +54,12 @@ void DrawResult()
    htOPEN->GetXaxis()->SetTitle("Time resolution, ns");
    htOPEN->SetTitle(file2TitleCan);
    htOPEN->Draw();
-   htOPEN->Fit("gaus","","",10.41,10.58);
+   //htOPEN->Fit("gaus","","",10.41,10.58);
    //htOPEN->Fit("gaus","","",10.55,10.75);
    //htOPEN->Fit("gaus","","",10.37,10.63);
+   htOPEN->Fit("gaus","","",10.57,10.84);
+   //htOPEN->Fit("gaus","","",10.50,10.77);
+   //htOPEN->Fit("gaus","","",10.44,10.70);
    TAxis *axis2 = htOPEN->GetXaxis();
    int bmin2 = axis->FindBin(xmin); 
    int bmax2 = axis->FindBin(xmax); 
